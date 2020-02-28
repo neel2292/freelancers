@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+
+.freelancer-form {
+  margin: 30px auto;
+  max-width: 500px;
+  text-align: center;
+  padding-top: 30px;
+  .form-input {
+    width:400px;
+    margin: auto;
+  }
+  .form-badge {
+    padding: 10px 50px;
+    .badge-icon {
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 24px;
+      margin-left: 10px;
+      background-color: mat-color($mat-blue-gray, 900);
+      border-radius: 50%;
+      outline: none;
+    }
+  }
+}
+#delete-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+}

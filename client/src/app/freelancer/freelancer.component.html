@@ -1,0 +1,47 @@
+<mat-card class="freelancer-form">
+  <mat-card-content>
+    <mat-form-field class="form-input">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" [(ngModel)]="freelancer && freelancer.username"/>
+    </mat-form-field>
+    <mat-form-field class="form-input">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="freelancer && freelancer.email"/>
+    </mat-form-field>
+    <mat-form-field class="form-input">
+      <mat-label>Mobile</mat-label>
+      <input matInput type="tel" [(ngModel)]="freelancer && freelancer.mobile"/>
+    </mat-form-field>
+    <mat-form-field class="form-input">
+      <mat-label>Skillsets</mat-label>
+      <input matInput type="text" [(ngModel)]="badges.skillsets"/>
+    </mat-form-field>
+    <div class="form-badge" *ngIf="freelancer.skillsets && freelancer.skillsets.length">
+      <mat-chip-list>
+        <mat-chip color="primary" selected *ngFor="let skill of freelancer.skillsets; index as i;">
+          {{skill}}
+          <mat-icon (click)="removeList(i, freelancer.skillsets)" class="badge-icon">clear</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <mat-form-field class="form-input">
+      <mat-label>Hobbies</mat-label>
+      <input matInput type="text" [(ngModel)]="badges.hobbies" />
+    </mat-form-field>
+    <div class="form-badge" *ngIf="freelancer.hobbies && freelancer.hobbies.length">
+      <mat-chip-list>
+        <mat-chip color="primary" selected *ngFor="let hobby of freelancer.hobbies; index as i;">
+          {{hobby}}
+          <mat-icon (click)="removeList(i, freelancer.hobbies)" class="badge-icon">clear</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" *ngIf="!is_new">Update</button>
+    <button mat-raised-button color="primary" *ngIf="is_new">Create</button>
+  </mat-card-actions>
+</mat-card>
+<button id="delete-button" *ngIf="!is_new" mat-button class="mat-fab mat-bottom-left" color="accent" aria-label="Delete">
+  <mat-icon>delete</mat-icon>
+</button>
